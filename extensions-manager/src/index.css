@@ -1,0 +1,289 @@
+/* ==== Variables Thèmes ==== */
+:root {
+  --neutral-900: hsl(227, 75%, 14%);
+  --neutral-800: hsl(226, 25%, 17%);
+  --neutral-700: hsl(225, 23%, 24%);
+  --neutral-600: hsl(226, 11%, 37%);
+  --neutral-300: hsl(0, 0%, 78%);
+  --neutral-200: hsl(217, 61%, 90%);
+  --neutral-100: hsl(0, 0%, 93%);
+  --neutral-0: hsl(200, 60%, 99%);
+
+  --red-400: hsl(3, 86%, 64%);
+  --red-500: hsl(3, 71%, 56%);
+  --red-700: hsl(3, 77%, 44%);
+
+  --bg-gradient: linear-gradient(180deg, #040918 0%, #091540 100%);
+  --card-bg: var(--neutral-800);
+  --header-bg: rgba(20, 25, 50, 0.85);
+  --text-color: var(--neutral-0);
+}
+
+body.light {
+  --bg-gradient: linear-gradient(180deg, #ffffff 0%, #b0cdf9 100%);
+  --card-bg: white;
+  --header-bg: rgba(255, 255, 255, 0.85);
+  --text-color: var(--neutral-900);
+}
+
+/* ==== Global ==== */
+body {
+  margin: 0;
+  font-family: 'Noto Sans', sans-serif;
+  background: var(--bg-gradient);
+  color: var(--text-color);
+  transition: background 0.3s, color 0.3s;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 1.5rem;
+}
+
+/* ==== Header ==== */
+.header {
+  background: var(--header-bg);
+  border-radius: 16px;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-left img {
+  height: 46px; /* augmenté */
+}
+
+.theme-btn {
+  background: transparent;
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.theme-btn img {
+  height: 20px;
+}
+
+/* ==== Main Card ==== */
+.main-card {
+  margin-top: 1.5rem;
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 2rem;
+  transition: background 0.3s;
+}
+
+.header-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.main-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.filters {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.filter-btn {
+  padding: 0.4rem 1.2rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  background: var(--neutral-700);
+  color: var(--neutral-200);
+  font-size: 0.9rem;
+}
+
+body.light .filter-btn {
+  background: var(--neutral-200);
+  color: var(--neutral-900);
+}
+
+.filter-btn.active {
+  background: var(--red-500);
+  color: white;
+}
+
+/* ==== Hover Boutons Uniformes ==== */
+.filter-btn,
+.remove-btn {
+  transition: background 0.25s, transform 0.15s;
+}
+
+.filter-btn:hover,
+.remove-btn:hover {
+  background: var(--red-500);
+  color: white;
+  transform: translateY(-1px);
+}
+
+/* ==== Grid ==== */
+.extensions-grid {
+ display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 3rem; /* plus d’espace entre les cartes */
+}
+
+/* ==== Extension Card ==== */
+.extension-card {
+  background: hsl(226, 28%, 22%); /* légèrement plus clair que le fond global pour contraste */
+  border-radius: 16px;
+  padding: 1rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+  transition: background 0.3s;
+}
+
+
+body.light .extension-card {
+  background: var(--neutral-100);
+}
+.left-column {
+ display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.logo-container {
+  flex-shrink: 0;
+}
+
+.logo-container img {
+  height: 64px; /* plus grand pour le design */
+  width: 64px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.text-container {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.text-container h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.text-container p {
+  margin: 0.4rem 0 0;
+  font-size: 0.85rem;
+  color: var(--neutral-300);
+}
+
+body.light .text-container p {
+  color: var(--neutral-600);
+}
+
+/* ==== Actions collées en bas ==== */
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto; /* pousse vers le bas */
+}
+
+/* ==== Remove bouton uniforme ==== */
+.remove-btn {
+  background: var(--neutral-700);
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: background 0.25s, transform 0.15s;
+}
+
+body.light .remove-btn {
+  background: var(--neutral-200);
+  color: var(--neutral-900);
+}
+
+/* ==== Hover Boutons Uniformes (même en light et dark) ==== */
+.filter-btn,
+.remove-btn {
+  transition: background 0.25s, transform 0.15s;
+}
+
+.filter-btn:hover,
+.remove-btn:hover {
+  background: var(--red-500) !important;
+  color: white !important;
+  transform: translateY(-1px);
+}
+
+/* ==== Switch ==== */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 36px;
+  height: 18px;
+}
+
+.toggle-switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background-color: var(--neutral-700);
+  border-radius: 999px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 0.3s;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 14px;
+  width: 14px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+input:checked + .slider {
+  background-color: var(--red-500);
+}
+
+input:checked + .slider::before {
+  transform: translateX(18px);
+}
+
+
+
+/* ==== Responsive ==== */
+@media (max-width: 375px) {
+  .header-left img {
+    height: 36px;
+  }
+  .main-card {
+    padding: 1rem;
+  }
+  .filters {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
